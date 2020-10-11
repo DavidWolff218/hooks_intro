@@ -18,8 +18,16 @@ function App() {
     <>
     <Alert></Alert>
     <h1>budget calculator</h1>
-    <ExpenseForm></ExpenseForm>
-    <ExpenseList></ExpenseList>
+    <main className="App">
+    <ExpenseForm/>
+    <ExpenseList expenses={expenses}/>
+    </main>
+    <h1>
+      total spending : <span className="total"></span>
+        $ {expenses.reduce((acc, curr)=>{
+          return (acc += curr.amount)
+        },0)}
+    </h1>
     </>
   );
 }
