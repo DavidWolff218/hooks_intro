@@ -1,11 +1,14 @@
-import React from 'react'
-import {ExpenseItem} from './ExpenseItem'
+import React from "react";
+import { ExpenseItem } from "./ExpenseItem";
 
-export const ExpenseList = () => {
+export const ExpenseList = ({ expenses }) => {
   return (
-    <div>
-      hello from expense list
-      <ExpenseItem />
-    </div>
-  )
-}
+    <>
+      <ul className="list">
+        {expenses.map((expense) => {
+          return <ExpenseItem key={expense.id} expense={expense} />;
+        })}
+      </ul>
+    </>
+  );
+};
