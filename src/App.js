@@ -38,14 +38,24 @@ function App() {
     if (charge !== "" && amount > 0) {
       const singleExpense = { id: uuid(), charge: charge, amount: amount };
       setExpenses([...expenses, singleExpense]);
-      handleAlert({type: 'success', text: 'item added'})
+      handleAlert({ type: "success", text: "item added" });
       setCharge("");
       setAmount("");
-
     } else {
-      handleAlert({type: 'danger', text: `charge can't be empty value and amount of value has to be bigger than zero`})
+      handleAlert({
+        type: "danger",
+        text: `charge can't be empty value and amount of value has to be bigger than zero`,
+      });
     }
   };
+
+  const clearItems = () => {
+    console.log("clear")
+  };
+
+  const handleDelete = (id) => {};
+
+  const handleEdit = (id) => {};
 
   return (
     <>
@@ -60,7 +70,12 @@ function App() {
           handleCharge={handleCharge}
           handleSubmit={handleSubmit}
         />
-        <ExpenseList expenses={expenses} />
+        <ExpenseList
+          expenses={expenses}
+          handleDelete={handleDelete}
+          handleEdot={handleEdit}
+          clearItems={clearItems}
+        />
       </main>
       <h1>
         total spending : <span className="total"></span>${" "}
