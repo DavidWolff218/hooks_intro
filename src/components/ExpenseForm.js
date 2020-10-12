@@ -1,9 +1,14 @@
 import React from 'react'
+import {MdSend} from 'react-icons/md'
 
 export const ExpenseForm = () => {
   return (
-    <div>
-      hello from expense form
-    </div>
+    <form>
+      <div className="form-center">
+<div className="form-group">
+<label htmlFor="expense">charge</label>
+</div>
+      </div>
+    </form>
   )
 }
