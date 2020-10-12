@@ -18,6 +18,8 @@ function App() {
   const [charge, setCharge] = useState("");
   // single amount
   const [amount, setAmount] = useState("");
+  //alert
+  const [alert, setAlert] = useState({ show: false });
   // **** functionality *****
   const handleCharge = (e) => {
     setCharge(e.target.value);
@@ -25,13 +27,21 @@ function App() {
   const handleAmount = (e) => {
     setAmount(e.target.value);
   };
+  const handleAlert = ({ type, text }) => {
+    setAlert({ show: true, type, text });
+    setTimeout(() => {
+      setAlert({ show: false });
+    }, 3000);
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
-    if(charge !== '' && amount > 0) {
-      const singleExpense = { id: uuid(), charge: charge, amount: amount}
-      setExpenses([...expenses, singleExpense])
-      setCharge('')
-      setAmount('')
+    if (charge !== "" && amount > 0) {
+      const singleExpense = { id: uuid(), charge: charge, amount: amount };
+      setExpenses([...expenses, singleExpense]);
+      handleAlert({type: 'success', text: 'item added'})
+      setCharge("");
+      setAmount("");
+
     } else {
       // handle alert called
     }
@@ -39,7 +49,8 @@ function App() {
 
   return (
     <>
-      <Alert></Alert>
+      {alert.show && <Alert type={alert.type} text={alert.text} />}
+      <Alert />
       <h1>budget calculator</h1>
       <main className="App">
         <ExpenseForm
