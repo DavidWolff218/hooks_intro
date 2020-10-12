@@ -1,10 +1,13 @@
-import React from 'react'
+import React from "react";
 
-export const ExpenseItem = ({expense}) => {
-  const {id, charge, amount} = expense
+export const ExpenseItem = ({ expense }) => {
+  const { id, charge, amount } = expense;
   return (
-    <li>
-      hello from expense item
+    <li className="item">
+      <div className="info">
+        <span className="expense">{charge}</span>
+        <span className="amount">${amount}</span>
+      </div>
     </li>
-  )
-}
+  );
+};
