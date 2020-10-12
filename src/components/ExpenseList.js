@@ -13,8 +13,7 @@ export const ExpenseList = ({ expenses }) => {
       </ul>
       {expenses.length > 0 && <button className="btn">
         clear expenses 
-        {/* <MdDelete className="btn-icon" /> */}
-        <FaBeer className="btn-icon" />
+        <MdDelete className="btn-icon" />
         </button>}
     </>
   );
