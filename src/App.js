@@ -43,7 +43,7 @@ function App() {
       setAmount("");
 
     } else {
-      // handle alert called
+      handleAlert({type: 'danger', text: `charge can't be empty value and amount of value has to be bigger than zero`})
     }
   };
 
