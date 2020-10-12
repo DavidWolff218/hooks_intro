@@ -1,5 +1,7 @@
 import React from "react";
 import { ExpenseItem } from "./ExpenseItem";
+import { MdDelete } from 'react-icons/md'
+import { FaBeer } from 'react-icons/fa'
 
 export const ExpenseList = ({ expenses }) => {
   return (
@@ -9,6 +11,11 @@ export const ExpenseList = ({ expenses }) => {
           return <ExpenseItem key={expense.id} expense={expense} />;
         })}
       </ul>
+      {expenses.length > 0 && <button className="btn">
+        clear expenses 
+        {/* <MdDelete className="btn-icon" /> */}
+        <FaBeer className="btn-icon" />
+        </button>}
     </>
   );
 };
