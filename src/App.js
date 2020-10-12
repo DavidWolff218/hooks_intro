@@ -53,9 +53,13 @@ function App() {
     console.log("clear")
   };
 
-  const handleDelete = (id) => {};
+  const handleDelete = (id) => {
+    console.log("delete")
+  };
 
-  const handleEdit = (id) => {};
+  const handleEdit = (id) => {
+    console.log("edit")
+  };
 
   return (
     <>
@@ -73,7 +77,7 @@ function App() {
         <ExpenseList
           expenses={expenses}
           handleDelete={handleDelete}
-          handleEdot={handleEdit}
+          handleEdit={handleEdit}
           clearItems={clearItems}
         />
       </main>
