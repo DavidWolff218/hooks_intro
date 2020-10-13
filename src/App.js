@@ -20,6 +20,11 @@ function App() {
   const [amount, setAmount] = useState("");
   //alert
   const [alert, setAlert] = useState({ show: false });
+  //edit
+  const [edit, setEdit] = useState(false)
+  //edit item
+  const [id, setId] = useState(0)
+
   // **** functionality *****
   const handleCharge = (e) => {
     setCharge(e.target.value);
@@ -50,18 +55,21 @@ function App() {
   };
 
   const clearItems = () => {
-    setExpenses([])
+    setExpenses([]);
+    handleAlert({ type: "danger", text: "all items deleted" });
   };
 
   const handleDelete = (id) => {
-    let tempExpenses = expenses.filter(item => {
-      return item.id !== id
-    })
-    setExpenses(tempExpenses)
+    let tempExpenses = expenses.filter((item) => {
+      return item.id !== id;
+    });
+    setExpenses(tempExpenses);
+    handleAlert({ type: "danger", text: "item deleted" });
   };
 
   const handleEdit = (id) => {
-    console.log("edit")
+    let expense = expenses.find(item => item.id === id)
+    
   };
 
   return (
@@ -76,6 +84,7 @@ function App() {
           handleAmount={handleAmount}
           handleCharge={handleCharge}
           handleSubmit={handleSubmit}
+          edit={edit}
         />
         <ExpenseList
           expenses={expenses}
