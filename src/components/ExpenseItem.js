@@ -18,7 +18,11 @@ export const ExpenseItem = ({ expense, handleEdit, handleDelete }) => {
           {" "}
           <MdEdit />
         </button>
-        <button className="clear-btn" aria-label="delete button" onClick={() => handleDelete(id)}>
+        <button
+          className="clear-btn"
+          aria-label="delete button"
+          onClick={() => handleDelete(id)}
+        >
           {" "}
           <MdDelete />
         </button>

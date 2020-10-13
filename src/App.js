@@ -50,11 +50,14 @@ function App() {
   };
 
   const clearItems = () => {
-    console.log("clear")
+    setExpenses([])
   };
 
   const handleDelete = (id) => {
-    console.log("delete")
+    let tempExpenses = expenses.filter(item => {
+      return item.id !== id
+    })
+    setExpenses(tempExpenses)
   };
 
   const handleEdit = (id) => {
